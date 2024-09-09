@@ -10,19 +10,14 @@ MEF is a framework that helps you design extensible and pluggable applications. 
 #### Imports: Components that the system can use from external sources. For example, FileProcessorManager imports implementations of the IBloombergRest interface.
 MEF automatically resolves dependencies, meaning you don’t have to manually wire up all the objects.
 
-### Windows Service with MEF, FileSystemWatcher, BlockingCollection, and Asynchronous File Processing
-Overview
-This solution demonstrates how to create a Windows Service that monitors a directory for incoming XML files, processes them asynchronously using Managed Extensibility Framework (MEF) plugins, and moves the files to a "processed" directory after processing. This design adheres to the Dependency Inversion Principle (DIP), with both the high-level module and the low-level module depending on abstractions.
-
 Key technologies and concepts:
 
-## 1. Windows Service: Watches for file creation and processes files asynchronously.
-## 2. FileSystemWatcher: Monitors a directory for changes (new XML files).
-## 3. MEF (Managed Extensibility Framework): Dynamically loads plugins at runtime to process XML files based on file types.
-## 4. BlockingCollection: Manages a queue for the files to ensure efficient producer-consumer patterns.
-## 5. Dependency Inversion Principle (DIP): Both the high-level and low-level components depend on an abstraction (IBloombergRest interface), ensuring flexibility and maintainability.
-## 6. ConfigurationManager: Configures directories for watching and processing through the app's configuration file (App.config).
-## 7. Asynchronous Programming (Tasks): Processes files asynchronously to ensure non-blocking, efficient file processing.
+#### 2. FileSystemWatcher: Monitors a directory for changes (new XML files).
+#### 3. MEF (Managed Extensibility Framework): Dynamically loads plugins at runtime to process XML files based on file types.
+#### 4. BlockingCollection: Manages a queue for the files to ensure efficient producer-consumer patterns.
+#### 5. Dependency Inversion Principle (DIP): Both the high-level and low-level components depend on an abstraction (IBloombergRest interface), ensuring flexibility and maintainability.
+#### 6. ConfigurationManager: Configures directories for watching and processing through the app's configuration file (App.config).
+#### 7. Asynchronous Programming (Tasks): Processes files asynchronously to ensure non-blocking, efficient file processing.
 
 ### 1. App Configuration (App.config)
 WatchedDirectory: Directory where new XML files are added and watched by the service.
@@ -91,7 +86,7 @@ Provides a thread-safe way to manage the producer-consumer pattern, ensuring tha
 
 Files are processed asynchronously using Task.Run() to avoid blocking the main service thread.
 
-This solution can be a ###reference### for building more complex, dynamic, and flexible file processing systems in production environments. The concepts demonstrated here are applicable to any scenario involving real-time file processing, modular design, and dynamic extensibility using plugins.
+### This solution can be a reference for building more complex, dynamic, and flexible file processing systems in production environments. The concepts demonstrated here are applicable to any scenario involving real-time file processing, modular design, and dynamic extensibility using plugins.
 
 
 
