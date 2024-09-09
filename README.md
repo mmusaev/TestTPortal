@@ -6,8 +6,8 @@ This solution demonstrates how to create a Windows Service that monitors a direc
 What is MEF (Managed Extensibility Framework)?
 MEF is a framework that helps you design extensible and pluggable applications. It allows parts of an application to be dynamically composed at runtime. This is especially useful when you need to extend functionality without modifying the core logic.
 
-Exports: Components (like classes) that are exposed to the system for usage. In this case, our BloombergRestImplementation class is an export.
-Imports: Components that the system can use from external sources. For example, FileProcessorManager imports implementations of the IBloombergRest interface.
+#### Exports: Components (like classes) that are exposed to the system for usage. In this case, our BloombergRestImplementation class is an export.
+#### Imports: Components that the system can use from external sources. For example, FileProcessorManager imports implementations of the IBloombergRest interface.
 MEF automatically resolves dependencies, meaning you don’t have to manually wire up all the objects.
 
 ### Windows Service with MEF, FileSystemWatcher, BlockingCollection, and Asynchronous File Processing
