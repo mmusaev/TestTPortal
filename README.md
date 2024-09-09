@@ -38,7 +38,7 @@ Acts as a thread-safe queue that stores file paths added by the producer (FileSy
 
 #### MEF (Managed Extensibility Framework):
 
-[ImportMany] attribute is used to import multiple implementations of IBloombergRest. MEF dynamically loads these plugins from the configured directory. This allows easy extension of the system without changing the core code.
+##### [ImportMany] attribute is used to import multiple implementations of IBloombergRest. MEF dynamically loads these plugins from the configured directory. This allows easy extension of the system without changing the core code.
 The CompositionContainer and DirectoryCatalog are used to load and compose parts dynamically from the plugin directory.
 
 #### Asynchronous Processing:
