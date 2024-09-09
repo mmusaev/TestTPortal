@@ -78,7 +78,8 @@ Both the high-level FileProcessorManager and the low-level BloombergRestImplemen
 ### Managed Extensibility Framework (MEF):
 
 MEF allows the dynamic loading of plugins (IBloombergRest implementations) from external directories. This makes it easy to extend the system by adding new processing logic without modifying existing code.
-BlockingCollection:
+
+### BlockingCollection:
 
 Provides a thread-safe way to manage the producer-consumer pattern, ensuring that files are processed asynchronously without locking resources.
 
