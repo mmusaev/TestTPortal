@@ -1,4 +1,5 @@
-﻿using System.ServiceProcess;
+﻿using System.Configuration;
+using System.ServiceProcess;
 
 namespace TPortalTest
 {
@@ -15,7 +16,7 @@ namespace TPortalTest
                 var service = new TPortalClient();
                 service.OnStart(args);
 
-                Console.WriteLine("Service running... Press Enter to exit.");
+                Console.WriteLine("Service running... Press Ctl+C to exit.");
 
                 Console.CancelKeyPress += (sender, e) =>
                 {
@@ -35,11 +36,13 @@ namespace TPortalTest
         // When the service starts, we initialize the file processor
         protected override void OnStart(string[] args)
         {
-            // Initialize the FileProcessorManager with the directory to watch and plugin directory
-            _fileProcessorManager = new FileProcessorManager(
-                @"D:\watched-directory",  // Directory to watch for XML files
-                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Plugins") // Plugin directory where MEF plugins reside
-            );
+            // Read directory paths from App.config
+            string watchedDirectory = ConfigurationManager.AppSettings["WatchedDirectory"];
+            string pluginDirectory = ConfigurationManager.AppSettings["PluginDirectory"];
+
+            // Initialize the FileProcessorManager with the configured directories
+            _fileProcessorManager = new FileProcessorManager(watchedDirectory, pluginDirectory);
+
         }
 
         // Clean up when the service stops

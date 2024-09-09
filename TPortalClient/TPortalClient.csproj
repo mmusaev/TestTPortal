@@ -9,16 +9,17 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Include="bin\Debug\net8.0-windows\win-x64\Plugins\BloombergRest.dll" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="System.ComponentModel.Composition" Version="8.0.0" />
+		<PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
 		<PackageReference Include="System.ServiceProcess.ServiceController" Version="8.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\IBloombergRest\IBloombergRest.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="bin\Debug\net8.0-windows\win-x64\Plugins\" />
 	</ItemGroup>
 
 </Project>

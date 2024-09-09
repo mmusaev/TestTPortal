@@ -5,6 +5,8 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+		<!-- Define a new property for the destination folder -->
+		<PluginDestinationFolder Condition=" '$(PluginDestinationFolder)' == '' ">D:\dev\TPortal\TPortalClient\bin\Debug\net8.0-windows\win-x64\Plugins\</PluginDestinationFolder>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -17,7 +19,7 @@
 
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
 		<Copy SourceFiles="$(TargetDir)$(TargetName).dll"
-			  DestinationFolder="D:\dev\TPortal\TPortalClient\bin\Debug\net8.0-windows\win-x64\Plugins" />
+			  DestinationFolder="$(PluginDestinationFolder)" />
 	</Target>
 
 </Project>
